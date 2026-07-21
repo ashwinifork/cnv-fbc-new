@@ -8,8 +8,8 @@ metadata:
     pipelinesascode.tekton.dev/cancel-in-progress: "false"
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch
-      == "main" && ( "v4.22/***".pathChanged() || ".tekton/cnv-fbc-new-c714d-push.yaml".pathChanged()
-      || "v4.22/catalog.Dockerfile".pathChanged() )
+      == "main" && ( "v4.17/***".pathChanged() || ".tekton/cnv-fbc-new-c714d-push.yaml".pathChanged()
+      || "v4.17/catalog.Dockerfile".pathChanged() )
   labels:
     appstudio.openshift.io/application: ashwkuma-app
     appstudio.openshift.io/component: cnv-fbc-new-c714d
@@ -25,9 +25,9 @@ spec:
   - name: output-image
     value: quay.io/redhat-user-workloads-stage/iib-tenant/cnv-fbc-new-c714d:{{revision}}
   - name: dockerfile
-    value: v4.22/catalog.Dockerfile
+    value: v4.17/catalog.Dockerfile
   - name: path-context
-    value: v4.22
+    value: v4.17
   pipelineSpec:
     description: |
       This pipeline is ideal for building container images from a Containerfile while maintaining trust after pipeline customization.
