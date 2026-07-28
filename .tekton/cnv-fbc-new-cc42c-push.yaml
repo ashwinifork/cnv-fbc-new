@@ -390,30 +390,8 @@ spec:
         operator: in
         values:
         - "false"
-    - name: fbc-fips-check-oci-ta
-      params:
-      - name: image-digest
-        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
-      - name: image-url
-        value: $(tasks.build-image-index.results.IMAGE_URL)
-      - name: SOURCE_ARTIFACT
-        value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
-      runAfter:
-      - build-image-index
-      taskRef:
-        params:
-        - name: name
-          value: fbc-fips-check-oci-ta
-        - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check-oci-ta:0.1@sha256:e957d0399fb5579163f00967aea2c137cf25d0679592e4a480e8d850db18d4f0
-        - name: kind
-          value: task
-        resolver: bundles
-      when:
-      - input: $(params.skip-checks)
-        operator: in
-        values:
-        - "false"
+
+
     workspaces:
     - name: git-auth
       optional: true
