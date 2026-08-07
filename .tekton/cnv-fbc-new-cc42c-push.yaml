@@ -391,7 +391,6 @@ spec:
         values:
         - "false"
 
-
     workspaces:
     - name: git-auth
       optional: true
